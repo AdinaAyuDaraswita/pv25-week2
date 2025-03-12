@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton,
-    QRadioButton, QComboBox, QGroupBox, QFormLayout, QSizePolicy
+    QRadioButton, QComboBox, QGroupBox, QFormLayout
 )
 from PyQt5.QtGui import QFont
 import sys
@@ -73,6 +73,10 @@ class RegistrationForm(QWidget):
 
         for widget in [self.fullname_input, self.email_input, self.phone_input, self.country_combo]:
             widget.setFixedWidth(200)
+            widget.setStyleSheet(
+                "QLineEdit, QComboBox { border: 1px solid gray; padding: 5px; border-radius: 5px; }"
+                "QLineEdit:hover, QComboBox:hover { border: 2px solid purple; }"
+            )
         
         form_container.addRow(QLabel("Full Name:"), self.fullname_input)
         form_container.addRow(QLabel("Email:"), self.email_input)
